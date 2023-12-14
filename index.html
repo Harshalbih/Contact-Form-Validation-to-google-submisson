@@ -2,39 +2,39 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Validation</title>
+    <title>Form Validation - Easy Tutorials YouTube Channel</title>
     <link rel="stylesheet" href="./style.css">
     <script src="https://kit.fontawesome.com/d50f77907a.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container" id="container">
-    <form id="myForm">
+    <form id="myForm" name="submit-to-google-sheet">
       <h2>Contact Harshal</h2>
       <div class="input-group">
         <label>Full Name</label>
-        <input type="text" placeholder="Enter your name" id="name-input" onkeyup="validateName()" required="required">
+        <input type="text" name="Name" placeholder="Enter your name" id="name-input" onkeyup="validateName()" required="required">
         <span id="name-error"></span>
       </div>
 
       <div class="input-group">
         <label>Phone No.</label>
-        <input type="tel" placeholder="123 456 7890" id="phone-input" onkeyup="validatePhone()" required="required">
+        <input type="tel" name="Phone Number" placeholder="123 456 7890" id="phone-input" onkeyup="validatePhone()" required="required">
         <span id="phone-error"></span>
       </div>
 
       <div class="input-group">
         <label>Email Id</label>
-        <input type="email" placeholder="Enter Email" id="email-input" onkeyup="validateEmail()" required="required">
+        <input type="email" name="Email" placeholder="Enter Email" id="email-input" onkeyup="validateEmail()" required="required">
         <span id="email-error"></span>
       </div>   
 
       <div class="input-group">
         <label>Your Message</label>
-        <textarea rows="5" placeholder="Enter your message" id="text-input" onkeyup="validateText()" required="required"></textarea>
+        <textarea rows="5" name="Message" placeholder="Enter your message" id="text-input" onkeyup="validateText()" required="required"></textarea>
         <span id="text-error"></span>
       </div>
 
-    <button onclick="return validateForm()">Submit</button>
+    <button type="submit" onclick="return validateForm()">Submit</button>
     <span id="submit-error"></span>
   </form>
 
