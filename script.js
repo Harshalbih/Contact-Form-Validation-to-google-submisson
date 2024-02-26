@@ -1,3 +1,5 @@
+
+
 var nameError = document.getElementById("name-error");
 var phoneError = document.getElementById("phone-error");
 var emailError = document.getElementById("email-error");
@@ -6,6 +8,7 @@ var submitError = document.getElementById("submit-error");
 
 //onsubmit
 var success = document.getElementById("success");
+var corsError = false;
 
 function validateName() {
   var name = document.getElementById("name-input").value;
@@ -105,6 +108,22 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycby-SDUh2zLz4hOxXYV6v5
   form.addEventListener('submit', e => {
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
+    .then(response => {
+      if (!response.ok) {
+        if (!corsError) {
+          corsError = true;
+          return fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+        } else {
+          throw new Error('Failed to submit form');
+        }
+      }
+      console.log('Success!', response);
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+      form.style.display = "block";
+      success.style.display = "none";
+    });
+
+  return true;
+});
