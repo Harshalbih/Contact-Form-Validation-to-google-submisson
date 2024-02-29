@@ -102,7 +102,7 @@ function validateForm() {
 
 
 //Subscribe to form
-const scriptURL = 'https://script.google.com/macros/s/AKfycby-SDUh2zLz4hOxXYV6v5AzH6jlJ2liL0zK7lzx8bs0f5CcfdvecdQTWU8XhmYPOX_m/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyrPKpNlCdZv7hGLvAVXPW3hpe1IX-wqo3srrg10oBi3oyE9wmejCNGLkmbc2oky38r/exec'
   const form = document.forms['submit-to-google-sheet']
 
   form.addEventListener('submit', e => {
